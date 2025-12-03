@@ -267,6 +267,7 @@
         <ul>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#sede">Sede</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
@@ -287,35 +288,35 @@
         <!-- Destaques USEL: scroller horizontal -->
         <div class="usel-strip" aria-label="Destaques USEL">
           <div class="usel-scroller" role="region" aria-roledescription="carrossel" aria-label="Explorar iniciativas e cultura local">
-            <article class="usel-card" style="background-image:url('img/IMG_1366.JPG');">
+            <article class="usel-card" style="background-image:url('img/IMG_1366.jpg');">
               <div class="usel-card-content">
                 <span class="usel-badge">Comunidade</span>
                 <h3>USEL + Namibe</h3>
                 <p>Conectamos empreendedores à região para gerar impacto real.</p>
               </div>
             </article>
-            <article class="usel-card" style="background-image:url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1200&auto=format&fit=crop');">
+            <article class="usel-card" style="background-image:url('img/IMG_1380.jpg');">
               <div class="usel-card-content">
                 <span class="usel-badge">Inovação</span>
                 <h3>Tecnologia aplicada</h3>
                 <p>Digitalização e dados para acelerar negócios locais.</p>
               </div>
             </article>
-            <article class="usel-card" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop');">
+            <article class="usel-card" style="background-image:url('img/IMG_1385.jpg');">
               <div class="usel-card-content">
                 <span class="usel-badge">Cultura</span>
                 <h3>Mar e deserto</h3>
                 <p>O Namibe inspira iniciativas de educação e turismo.</p>
               </div>
             </article>
-            <article class="usel-card" style="background-image:url('https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1200&auto=format&fit=crop');">
+            <article class="usel-card" style="background-image:url('img/IMG_1386.jpg');">
               <div class="usel-card-content">
                 <span class="usel-badge">Formação</span>
                 <h3>Capacitação prática</h3>
                 <p>Workshops e mentorias para resultados de verdade.</p>
               </div>
             </article>
-            <article class="usel-card" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop');">
+            <article class="usel-card" style="background-image:url('img/IMG_1410.jpg');">
               <div class="usel-card-content">
                 <span class="usel-badge">Serviços</span>
                 <h3>Atendimento eficiente</h3>
@@ -509,6 +510,39 @@
               <span class="kpi-label">Áreas de atuação</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sede USEL -->
+    <section id="sede" class="section" aria-labelledby="titulo-sede">
+      <div class="container">
+        <h2 id="titulo-sede">Conheça a sede da USEL</h2>
+        <p class="section-lead">Um espaço inspirador no coração do Namibe, projetado para fomentar a colaboração, a criatividade e o crescimento dos negócios locais.</p>
+      </div>
+      <!-- Scroller horizontal da Sede -->
+      <div class="usel-strip" aria-label="Galeria de fotos da sede da USEL">
+        <div class="usel-scroller" role="region" aria-roledescription="carrossel" aria-label="Espaços da nossa sede">
+          <article class="usel-card" style="background-image:url('img/IMG_1411.jpg');">
+            <div class="usel-card-content">
+              <h3>Iniciativas que valorizam o Namibe</h3>
+            </div>
+          </article>
+          <article class="usel-card" style="background-image:url('img/IMG_1412.jpg');">
+            <div class="usel-card-content">
+              <h3>Desenvolvendo projetos de turismo sustentável</h3>
+            </div>
+          </article>
+          <article class="usel-card" style="background-image:url('img/IMG_1414.JPG');">
+            <div class="usel-card-content">
+              <h3>Estratégias para o crescimento do ecoturismo</h3>
+            </div>
+          </article>
+          <article class="usel-card" style="background-image:url('img/IMG_1418.JPG');">
+            <div class="usel-card-content">
+              <h3>Conectando a tradição à inovação turística</h3>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -796,55 +830,59 @@
 
     // Auto-scroll suave dos destaques (direita -> esquerda)
     (function(){
-      const scroller = document.querySelector('.usel-scroller');
-      if (!scroller || scroller.dataset.marqueeApplied) return;
-      scroller.dataset.marqueeApplied = '1';
+      const scrollers = document.querySelectorAll('.usel-scroller');
+      if (!scrollers.length) return;
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // Clonar itens para looping contínuo
-      const items = Array.from(scroller.children);
-      if (items.length) {
-        items.forEach(it => scroller.appendChild(it.cloneNode(true)));
-      }
-      scroller.classList.add('is-auto');
-      scroller.scrollLeft = 0; // iniciar encostado à esquerda, sem espaço
+      scrollers.forEach(scroller => {
+        if (scroller.dataset.marqueeApplied) return;
+        scroller.dataset.marqueeApplied = '1';
 
-      let rafId = null, lastTs = null;
-      const state = { paused: false };
-      const SPEED = 0.06; // px por ms (~60px/s)
-      const HALF = () => scroller.scrollWidth / 2; // porque duplicamos
-
-      const tick = (ts) => {
-        if (state.paused) { lastTs = ts; rafId = requestAnimationFrame(tick); return; }
-        if (lastTs == null) lastTs = ts;
-        const dt = Math.min(48, ts - lastTs);
-        lastTs = ts;
-        scroller.scrollLeft += SPEED * dt;
-        if (scroller.scrollLeft >= HALF()) {
-          scroller.scrollLeft -= HALF(); // reseta suavemente para início
+        // Clonar itens para looping contínuo
+        const items = Array.from(scroller.children);
+        if (items.length) {
+          items.forEach(it => scroller.appendChild(it.cloneNode(true)));
         }
+        scroller.classList.add('is-auto');
+        scroller.scrollLeft = 0;
+
+        let rafId = null, lastTs = null;
+        const state = { paused: false };
+        const SPEED = 0.06; // px por ms (~60px/s)
+        const HALF = () => scroller.scrollWidth / 2; // porque duplicamos
+
+        const tick = (ts) => {
+          if (state.paused) { lastTs = ts; rafId = requestAnimationFrame(tick); return; }
+          if (lastTs == null) lastTs = ts;
+          const dt = Math.min(48, ts - lastTs);
+          lastTs = ts;
+          scroller.scrollLeft += SPEED * dt;
+          if (scroller.scrollLeft >= HALF()) {
+            scroller.scrollLeft -= HALF(); // reseta suavemente para início
+          }
+          rafId = requestAnimationFrame(tick);
+        };
+
+        const pauseTemporarily = () => {
+          state.paused = true;
+          scroller.classList.remove('is-auto');
+          clearTimeout(pauseTemporarily._t);
+          pauseTemporarily._t = setTimeout(() => { state.paused = false; scroller.classList.add('is-auto'); }, 1200);
+        };
+
+        scroller.addEventListener('mouseenter', () => { state.paused = true; scroller.classList.remove('is-auto'); });
+        scroller.addEventListener('mouseleave', () => { state.paused = false; scroller.classList.add('is-auto'); });
+        scroller.addEventListener('touchstart', pauseTemporarily, { passive: true });
+        scroller.addEventListener('touchend', pauseTemporarily, { passive: true });
+        scroller.addEventListener('wheel', pauseTemporarily, { passive: true });
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) { cancelAnimationFrame(rafId); rafId = null; lastTs = null; }
+          else if (!rafId) { rafId = requestAnimationFrame(tick); }
+        });
+
         rafId = requestAnimationFrame(tick);
-      };
-
-      const pauseTemporarily = () => {
-        state.paused = true;
-        scroller.classList.remove('is-auto');
-        clearTimeout(pauseTemporarily._t);
-        pauseTemporarily._t = setTimeout(() => { state.paused = false; scroller.classList.add('is-auto'); }, 1200);
-      };
-
-      scroller.addEventListener('mouseenter', () => { state.paused = true; scroller.classList.remove('is-auto'); });
-      scroller.addEventListener('mouseleave', () => { state.paused = false; scroller.classList.add('is-auto'); });
-      scroller.addEventListener('touchstart', pauseTemporarily, { passive: true });
-      scroller.addEventListener('touchend', pauseTemporarily, { passive: true });
-      scroller.addEventListener('wheel', pauseTemporarily, { passive: true });
-
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) { cancelAnimationFrame(rafId); rafId = null; lastTs = null; }
-        else if (!rafId) { rafId = requestAnimationFrame(tick); }
       });
-
-      rafId = requestAnimationFrame(tick);
     })();
   // BlurText: split text into spans and animate on view
     (function(){
