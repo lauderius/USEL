@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USEL - Consultoria para Empreendedores Locais</title>
+  <meta name="description" content="USEL oferece consultoria estratégica, workshops, feiras e networking, formalização de negócios, tecnologia e inovação, mentoria de projetos, captação de recursos e promoção do comércio local." />
+  <link rel="canonical" href="https://www.exemplo.com/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="USEL - Consultoria para Empreendedores Locais" />
+  <meta property="og:description" content="Ajudamos você a desenvolver e acelerar o crescimento do seu negócio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.exemplo.com/" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="https://www.exemplo.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* Premium palette */
+      --blue-700: #0F4C81;   /* moderno/profissional */
+      --blue-800: #0b3c67;
+      --orange-500: #FF7A00; /* destaque premium */
+      --orange-600: #e96c00;
+      --gray-25:  #f8fafc;
+      --gray-50:  #f3f4f6;
+      --gray-100: #e5e7eb;
+      --gray-300: #cbd5e1;
+      --gray-600: #475569;
+      --gray-800: #1f2937;
+      --ink:      #0f172a;
+      --white:    #ffffff;
+      --radius:   14px;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.12);
+    }
+
+    /* Reset & base */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 800px at 100% -10%, rgba(15,76,129,0.08), transparent 60%),
+        radial-gradient(1000px 700px at -10% 100%, rgba(255,122,0,0.07), transparent 55%),
+        linear-gradient(180deg, var(--gray-50), var(--gray-25));
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    #bg-canvas { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .35; }
+    @media (prefers-reduced-motion: no-preference) {
+      #bg-canvas { animation: fadeWave 12s ease-in-out infinite alternate; }
+    }
+    @keyframes fadeWave { from { opacity: .35; } to { opacity: .85; } }
+
+    .container { width: min(1160px, 100%); margin-inline: auto; padding-inline: 24px; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: saturate(1.2) blur(8px);
+      background: color-mix(in srgb, var(--white) 70%, transparent);
+      border-bottom: 1px solid rgba(15,23,42,0.06);
+      transition: box-shadow .3s ease, background .3s ease, border-color .3s ease;
+    }
+    header.is-scrolled { box-shadow: var(--shadow-sm); background: rgba(255,255,255,0.9); border-color: rgba(15,23,42,0.08); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+
+    .logo { font-weight: 800; letter-spacing: .8px; color: var(--blue-700); font-size: 1.25rem; display: flex; align-items: center; }
+    .logo-badge { position: relative; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; transition: transform .25s ease, box-shadow .3s ease; }
+    .logo-badge:hover { transform: scale(1.04); box-shadow: 0 14px 32px rgba(15,23,42,0.22); }
+    .logo-badge::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 140deg, var(--orange-500), var(--blue-700), var(--orange-500)); z-index: 0; transition: filter .3s ease; }
+    .logo-badge:hover::after { animation: spin 1.8s linear infinite; filter: saturate(1.2) brightness(1.05); }
+    .logo-badge img { position: relative; z-index: 1; width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: center; background: #fff; box-shadow: 0 4px 10px rgba(15,23,42,0.15), 0 0 0 3px rgba(255,255,255,1); display: block; }
+
+    nav ul { list-style: none; display: flex; gap: 22px; align-items: center; }
+    nav a { color: var(--gray-800); font-weight: 500; padding: 8px 10px; border-radius: 8px; transition: color .2s ease, background .2s ease; }
+    nav a:hover { color: var(--blue-700); background: rgba(15,76,129,0.06); }
+    nav a.active { color: var(--blue-700); background: rgba(15,76,129,0.10); }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 12px; padding: 12px 18px; font-weight: 700; cursor: pointer; transition: transform .08s ease, box-shadow .2s ease, background .2s ease; }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: linear-gradient(135deg, var(--orange-500), var(--orange-600)); color: #fff; box-shadow: 0 12px 24px rgba(233,108,0,0.22); }
+    .btn-primary:hover { box-shadow: 0 18px 34px rgba(233,108,0,0.28); }
+    .btn-ghost { background: transparent; color: var(--blue-700); }
+
+    /* Hero */
+    .hero {
+      position: relative; color: #fff; overflow: hidden;
+      background: linear-gradient(135deg, var(--blue-700), var(--blue-800));
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(500px 200px at 10% 10%, rgba(255,255,255,0.12), transparent 60%),
+        radial-gradient(700px 280px at 90% 20%, rgba(255,255,255,0.10), transparent 60%);
+    }
+    .hero-inner { padding: clamp(56px, 8vw, 120px) 0; text-align: center; }
+    .hero h1 { font-size: clamp(28px, 4.5vw, 48px); line-height: 1.15; margin: 0 0 14px; font-weight: 800; letter-spacing: -0.02em; }
+    .hero p { font-size: clamp(16px, 2.4vw, 20px); opacity: .95; margin: 0 auto 26px; max-width: 800px; }
+
+    /* Sections */
+    .section { padding: clamp(48px, 7vw, 80px) 0; }
+    .section h2 { text-align: center; font-size: clamp(22px, 3.5vw, 34px); color: var(--blue-700); margin: 0 0 26px; letter-spacing: -0.01em; }
+    .section .section-lead { text-align: center; color: var(--gray-600); margin: -6px auto 26px; max-width: 760px; }
+
+    /* Services grid */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(16px, 3vw, 24px); }
+    .card {
+      grid-column: span 12;
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .18s ease, box-shadow .25s ease, border-color .25s ease;
+      position: relative;
+    }
+    .card::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+      background: linear-gradient(90deg, rgba(255,122,0,0.20), rgba(15,76,129,0.20));
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      padding: 1px; /* gradient border */
+      opacity: .28;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--gray-300); }
+    .card h3 { color: var(--blue-700); font-size: 1.15rem; margin: 0 0 8px; }
+    .card p { color: var(--gray-800); margin: 0; }
+    .card-thumb { border-radius: 12px; overflow: hidden; margin-bottom: 12px; border: 1px solid var(--gray-100); background: linear-gradient(135deg, #eef2f7, #e9eef6); display: flex; align-items: center; justify-content: center; height: 140px; position: relative; }
+    .thumb-svg { width: 88px; height: 88px; display: block; }
+    .card-thumb .glow { position: absolute; width: 240px; height: 240px; border-radius: 50%; filter: blur(26px); opacity: .22; pointer-events: none; }
+    @media (min-width: 1024px) { .card-thumb { height: 160px; } }
+
+    @media (min-width: 640px) { .card { padding: 22px; } }
+    @media (min-width: 768px) {
+      .card { grid-column: span 6; }
+    }
+    @media (min-width: 1024px) {
+      .card { grid-column: span 4; }
+    }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: start; }
+    .about-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: clamp(18px, 3vw, 26px); }
+    .about-card h3 { margin: 0 0 8px; color: var(--blue-700); font-size: 1.1rem; }
+    .about-card p { margin: 0 0 10px; color: var(--gray-800); }
+    .about-list { margin: 8px 0 0 18px; color: var(--gray-800); }
+
+    .kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .kpi { background: linear-gradient(180deg, #fff, #fdfdfd); border: 1px solid var(--gray-100); border-radius: 14px; padding: 16px; text-align: center; box-shadow: var(--shadow-sm); }
+    .kpi-value { font-weight: 800; font-size: clamp(22px, 4vw, 32px); color: var(--blue-700); display: block; }
+    .kpi-label { color: var(--gray-600); font-size: .95rem; }
+
+    @media (min-width: 900px) { .about-grid { grid-template-columns: 1.2fr .8fr; } }
+
+    /* Forms */
+    .form-box { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius); box-shadow: var(--shadow-sm); max-width: 720px; margin: 0 auto; padding: clamp(18px, 3.6vw, 28px); }
+    .form-box h3 { color: var(--blue-700); margin: 0 0 12px; font-size: 1.15rem; }
+
+    .field { display: grid; gap: 8px; margin-bottom: 14px; }
+    .input, .textarea {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit; color: var(--ink);
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .textarea { resize: vertical; min-height: 110px; }
+    .input::placeholder, .textarea::placeholder { color: var(--gray-600); opacity: .8; }
+    .input:focus, .textarea:focus { border-color: color-mix(in srgb, var(--blue-700) 50%, var(--orange-500)); box-shadow: 0 0 0 4px rgba(15,76,129,0.12); }
+    .input.error, .textarea.error { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,.15); }
+
+    .form-actions { display: flex; gap: 12px; }
+    .form-box button { font-size: 1rem; }
+    .form-box .btn-submit { background: var(--blue-700); color: #fff; border-radius: 12px; padding: 12px 18px; font-weight: 700; border: none; box-shadow: 0 12px 24px rgba(15,76,129,0.16); }
+    .form-box .btn-submit:hover { background: var(--blue-800); box-shadow: 0 18px 34px rgba(15,76,129,0.24); }
+    .spinner { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255,255,255,.5); border-top-color: #fff; animation: spin .8s linear infinite; display: inline-block; vertical-align: middle; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Footer */
+    footer { background: var(--blue-700); color: #e6eef6; }
+    .footer-inner { padding: 28px 0; text-align: center; }
+    .footer-inner p { margin: 6px 0; font-size: .96rem; }
+
+    /* Utilities */
+    .spacer-xs { height: 8px; }
+    .spacer-sm { height: 16px; }
+    .spacer-md { height: 24px; }
+    .spacer-lg { height: 36px; }
+
+    /* Back to top */
+    .to-top { position: fixed; right: 22px; bottom: 22px; z-index: 100; opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .25s ease, transform .25s ease; background: linear-gradient(135deg, var(--orange-500), var(--orange-600)); color: #fff; border: none; border-radius: 50%; width: 46px; height: 46px; box-shadow: var(--shadow-md); font-size: 18px; }
+    .to-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+    /* Toast */
+    .toast { position: fixed; right: 18px; top: 18px; z-index: 1000; padding: 12px 14px; border-radius: 12px; background: #0f172a; color: #fff; box-shadow: var(--shadow-lg); opacity: 0; transform: translateY(-10px); transition: opacity .25s ease, transform .25s ease; max-width: min(92vw, 420px); }
+    .toast.show { opacity: 0.98; transform: translateY(0); }
+
+    /* Focus outlines for a11y */
+    :focus-visible { outline: 3px solid color-mix(in srgb, var(--orange-500) 60%, var(--blue-700)); outline-offset: 2px; border-radius: 8px; }
+
+    /* USEL horizontal scroller */
+    .usel-strip { margin: 4px 0 20px; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+    #servicos.section { padding-top: clamp(16px, 3vw, 28px); }
+    .usel-scroller { display: flex; gap: 0; overflow-x: auto; padding: 0; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .usel-scroller::-webkit-scrollbar { height: 8px; }
+    .usel-scroller::-webkit-scrollbar-thumb { background: rgba(15,76,129,0.25); border-radius: 999px; }
+    .usel-scroller.is-auto { scroll-snap-type: none; }
+    .usel-card { position: relative; min-width: 300px; height: 220px; border-radius: var(--radius); overflow: hidden; background-color: #eaeff6; background-position: center !important; background-size: cover !important; background-repeat: no-repeat !important; border: 1px solid var(--gray-100); box-shadow: var(--shadow-sm); scroll-snap-align: start; }
+    @media (min-width: 920px) { .usel-card { min-width: 380px; height: 260px; } }
+    .usel-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 55%); }
+    .usel-card-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; padding: 18px; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,.45); }
+    .usel-card-content h3 { margin: 0; font-size: clamp(1.05rem, 2.2vw, 1.35rem); font-weight: 800; letter-spacing: .2px; line-height: 1.2; background: rgba(0,0,0,.45); padding: 6px 10px; border-radius: 10px; text-shadow: 0 3px 10px rgba(0,0,0,.6); }
+    .usel-card-content p { margin: 0; font-size: .95rem; opacity: .98; background: rgba(0,0,0,.35); padding: 4px 8px; border-radius: 8px; }
+    .usel-badge { display: inline-block; font-size: .75rem; font-weight: 600; padding: 4px 8px; border-radius: 999px; background: rgba(255,255,255,.18); color: #fff; border: 1px solid rgba(255,255,255,.35); backdrop-filter: blur(6px); }
+
+    /* Logo lightbox (modal) */
+    .lightbox { position: fixed; inset: 0; background: rgba(15,23,42,.66); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s ease; }
+    .lightbox.is-open { opacity: 1; visibility: visible; }
+    .lightbox-content { position: relative; max-width: min(92vw, 720px); max-height: 86vh; }
+    .lightbox-img { display: block; width: auto; max-width: 92vw; height: auto; max-height: 86vh; border-radius: 14px; background: #fff; box-shadow: var(--shadow-lg); }
+    .lightbox-close { position: absolute; top: -12px; right: -12px; width: 40px; height: 40px; border-radius: 50%; border: none; background: #0f172a; color: #fff; font-size: 20px; line-height: 1; cursor: pointer; box-shadow: var(--shadow-md); display: grid; place-items: center; }
+    .lightbox-close:hover { background: #111827; }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "USEL",
+    "url": "https://www.exemplo.com/",
+    "description": "Consultoria para Empreendedores Locais",
+    "logo": "https://www.exemplo.com/logo.png",
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+  <a class="visually-hidden" href="#conteudo">Ir para conteúdo principal</a>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header id="topo">
+    <div class="container nav">
+      <div class="logo" aria-label="Logotipo USEL"><span class="logo-badge"><img src="img/logo.png" alt="USEL" /></span></div>
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-label="Seção principal">
+      <div class="container hero-inner">
+        <h1 class="blur-text" data-stagger="45" data-from-blur="10" data-duration=".75s">Consultoria para Empreendedores Locais</h1>
+        <p>Ajudamos você a desenvolver e acelerar o crescimento do seu negócio.</p>
+        <a class="btn btn-primary" href="#contato" role="button" aria-label="Fale Conosco">Fale Conosco</a>
+      </div>
+    </section>
+
+    <section id="servicos" class="section" aria-labelledby="titulo-servicos">
+      <div class="container">
+        <!-- Destaques USEL: scroller horizontal -->
+        <div class="usel-strip" aria-label="Destaques USEL">
+          <div class="usel-scroller" role="region" aria-roledescription="carrossel" aria-label="Explorar iniciativas e cultura local">
+            <article class="usel-card" style="background-image:url('img/IMG_1366.JPG');">
+              <div class="usel-card-content">
+                <span class="usel-badge">Comunidade</span>
+                <h3>USEL + Namibe</h3>
+                <p>Conectamos empreendedores à região para gerar impacto real.</p>
+              </div>
+            </article>
+            <article class="usel-card" style="background-image:url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1200&auto=format&fit=crop');">
+              <div class="usel-card-content">
+                <span class="usel-badge">Inovação</span>
+                <h3>Tecnologia aplicada</h3>
+                <p>Digitalização e dados para acelerar negócios locais.</p>
+              </div>
+            </article>
+            <article class="usel-card" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop');">
+              <div class="usel-card-content">
+                <span class="usel-badge">Cultura</span>
+                <h3>Mar e deserto</h3>
+                <p>O Namibe inspira iniciativas de educação e turismo.</p>
+              </div>
+            </article>
+            <article class="usel-card" style="background-image:url('https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1200&auto=format&fit=crop');">
+              <div class="usel-card-content">
+                <span class="usel-badge">Formação</span>
+                <h3>Capacitação prática</h3>
+                <p>Workshops e mentorias para resultados de verdade.</p>
+              </div>
+            </article>
+            <article class="usel-card" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop');">
+              <div class="usel-card-content">
+                <span class="usel-badge">Serviços</span>
+                <h3>Atendimento eficiente</h3>
+                <p>Processos simples para formalização e crescimento.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <h2 id="titulo-servicos">Nossos Serviços</h2>
+        <div class="spacer-sm"></div>
+        <div class="grid">
+          <div class="card">
+            <div class="card-thumb" style="background: linear-gradient(135deg, #eaf2ff, #eef7ff);">
+              <span class="glow" style="background: radial-gradient(circle at 30% 30%, rgba(15,76,129,.22), transparent 60%);"></span>
+              <svg class="thumb-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-title-estrategia" role="img">
+                <title id="svg-title-estrategia">Gráfico de barras técnico</title>
+                <g fill="#0F4C81" fill-opacity="0.14" stroke="#0F4C81" stroke-width="3" stroke-linejoin="round">
+                  <rect x="10" y="30" width="8" height="24" rx="2" />
+                  <rect x="26" y="22" width="8" height="32" rx="2" />
+                  <rect x="42" y="14" width="8" height="40" rx="2" />
+                </g>
+                <path d="M8 56H56" stroke="#0F4C81" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Consultoria Estratégica</h3>
+            <p>Orientação estratégica, análise de mercado e apoio na tomada de decisões.</p>
+          </div>
+          <div class="card">
+            <div class="card-thumb" style="background: linear-gradient(135deg, #f0f5ff, #eef7ff);">
+              <span class="glow" style="background: radial-gradient(circle at 70% 40%, rgba(15,76,129,.18), transparent 60%);"></span>
+              <svg class="thumb-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-title-formacoes" role="img">
+                <title id="svg-title-formacoes">Código e engrenagem</title>
+                <g fill="none" stroke="#0F4C81" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 22l-8 10 8 10"/>
+                  <path d="M42 22l8 10-8 10"/>
+                  <circle cx="32" cy="32" r="6"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Workshops e Formações</h3>
+            <p>Treinamentos práticos em gestão, marketing, finanças e inovação.</p>
+          </div>
+          <div class="card">
+            <div class="card-thumb" style="background: linear-gradient(135deg, #eef7ff, #e9f4ff);">
+              <span class="glow" style="background: radial-gradient(circle at 50% 60%, rgba(15,76,129,.2), transparent 60%);"></span>
+              <svg class="thumb-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-title-network" role="img">
+                <title id="svg-title-network">Rede de conexões</title>
+                <g fill="#0F4C81" fill-opacity="0.14" stroke="#0F4C81" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="16" cy="20" r="6"/>
+                  <circle cx="48" cy="18" r="6"/>
+                  <circle cx="32" cy="44" r="6"/>
+                  <path d="M22 22l8 16"/>
+                  <path d="M42 20l-8 16"/>
+                  <path d="M22 22l20 -4"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Feiras e Networking</h3>
+            <p>Conectamos empreendedores, investidores e parceiros.</p>
+          </div>
+          <div class="card">
+            <div class="card-thumb" style="background: linear-gradient(135deg, #f2f7ff, #eef7ff);">
+              <span class="glow" style="background: radial-gradient(circle at 30% 70%, rgba(15,76,129,.18), transparent 60%);"></span>
+              <svg class="thumb-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-title-formal" role="img">
+                <title id="svg-title-formal">Documento com selo</title>
+                <g fill="none" stroke="#0F4C81" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="16" y="12" width="28" height="40" rx="4"/>
+                  <path d="M22 22h16M22 30h16M22 38h10"/>
+                  <circle cx="40" cy="42" r="6"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Formalização de Negócios</h3>
+            <p>Auxiliamos no processo legal e burocrático para sua empresa.</p>
+          </div>
+          <div class="card">
+            <div class="card-thumb" style="background: linear-gradient(135deg, #eef7ff, #edf6ff);">
+              <span class="glow" style="background: radial-gradient(circle at 60% 30%, rgba(15,76,129,.2), transparent 60%);"></span>
+              <svg class="thumb-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-title-tech" role="img">
+                <title id="svg-title-tech">Microchip</title>
+                <g fill="none" stroke="#0F4C81" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="18" y="18" width="28" height="28" rx="4"/>
+                  <rect x="28" y="28" width="8" height="8" rx="2"/>
+                  <path d="M32 6v8M32 50v8M6 32h8M50 32h8M14 14l6 6M44 44l6 6M44 14l-6 6M14 44l6 -6"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Tecnologia e Inovação</h3>
+            <p>Suporte para adoção de tecnologias inovadoras.</p>
+          </div>
+          <div class="card">
+            <div class="card-thumb" style="background: linear-gradient(135deg, #eef7ff, #e9f4ff);">
+              <span class="glow" style="background: radial-gradient(circle at 70% 70%, rgba(15,76,129,.18), transparent 60%);"></span>
+              <svg class="thumb-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-title-mentoria" role="img">
+                <title id="svg-title-mentoria">Roadmap de projeto</title>
+                <g fill="none" stroke="#0F4C81" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 48c8 0 8 -16 16 -16s8 16 16 16 8 -16 16 -16"/>
+                  <circle cx="26" cy="32" r="4"/>
+                  <circle cx="42" cy="48" r="4"/>
+                  <circle cx="58" cy="32" r="4"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Mentoria de Projetos</h3>
+            <p>Acompanhamento personalizado para superar desafios.</p>
+          </div>
+          <div class="card">
+            <div class="card-thumb" style="background: linear-gradient(135deg, #eef7ff, #edf6ff);">
+              <span class="glow" style="background: radial-gradient(circle at 40% 40%, rgba(15,76,129,.2), transparent 60%);"></span>
+              <svg class="thumb-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-title-capitacao" role="img">
+                <title id="svg-title-capitacao">Crescimento financeiro</title>
+                <g fill="#0F4C81" fill-opacity="0.14" stroke="#0F4C81" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="12" y="34" width="8" height="20" rx="2"/>
+                  <rect x="28" y="28" width="8" height="26" rx="2"/>
+                  <rect x="44" y="20" width="8" height="34" rx="2"/>
+                  <path d="M12 24l10 -6 10 6 10 -8 10 6"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Captação de Recursos</h3>
+            <p>Auxiliamos na busca por financiamentos, editais e investidores.</p>
+          </div>
+          <div class="card">
+            <div class="card-thumb" style="background: linear-gradient(135deg, #eef7ff, #eaf3ff);">
+              <span class="glow" style="background: radial-gradient(circle at 60% 60%, rgba(15,76,129,.18), transparent 60%);"></span>
+              <svg class="thumb-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-title-comercio" role="img">
+                <title id="svg-title-comercio">Loja/terminal de pagamento</title>
+                <g fill="none" stroke="#0F4C81" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="14" y="24" width="36" height="26" rx="4"/>
+                  <rect x="20" y="30" width="12" height="6" rx="2"/>
+                  <rect x="36" y="30" width="8" height="6" rx="2"/>
+                  <rect x="36" y="40" width="8" height="6" rx="2"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Promoção do Comércio Local</h3>
+            <p>Valorizamos os produtos e serviços locais, fortalecendo a comunidade.</p>
+          </div>
+          <div class="card">
+            <div class="card-thumb" style="background: linear-gradient(135deg, #eef7ff, #f1f7ff);">
+              <span class="glow" style="background: radial-gradient(circle at 50% 40%, rgba(15,76,129,.18), transparent 60%);"></span>
+              <svg class="thumb-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-title-dados" role="img">
+                <title id="svg-title-dados">Análise de dados</title>
+                <g fill="none" stroke="#0F4C81" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="32" cy="16" rx="14" ry="6"/>
+                  <path d="M18 16v16c0 3.3 6.3 6 14 6s14-2.7 14-6V16"/>
+                  <path d="M18 32v16c0 3.3 6.3 6 14 6s14-2.7 14-6V32"/>
+                  <path d="M40 40l8 8"/>
+                  <circle cx="50" cy="50" r="6"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Análise de Dados</h3>
+            <p>Dashboards e indicadores para decisões orientadas por dados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre com conteúdo profissional -->
+    <section id="sobre" class="section" aria-labelledby="titulo-sobre">
+      <div class="container">
+        <h2 id="titulo-sobre">Sobre</h2>
+        <p class="section-lead">Somos uma rede de especialistas dedicada a impulsionar micro, pequenos e médios negócios com estratégias práticas, dados aplicados e conexões que geram resultados reais.</p>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>O que nos move</h3>
+            <p>Combinamos experiência de mercado, metodologias ágeis e um ecossistema de parceiros para acelerar a jornada do empreendedor local.</p>
+            <ul class="about-list">
+              <li>Mentorias orientadas a dados e metas claras.</li>
+              <li>Programas de capacitação com foco em execução.</li>
+              <li>Conexão com oportunidades de financiamento e parcerias.</li>
+              <li>Rede ativa de networking e eventos setoriais.</li>
+            </ul>
+          </div>
+          <div class="about-card kpis">
+            <div class="kpi">
+              <span class="kpi-value" data-counter="120">0</span>
+              <span class="kpi-label">Projetos apoiados</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-value" data-counter="30">0</span>
+              <span class="kpi-label">Parceiros estratégicos</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-value" data-counter="98">0</span>
+              <span class="kpi-label">Satisfação dos clientes (%)</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-value" data-counter="15">0</span>
+              <span class="kpi-label">Áreas de atuação</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section" aria-labelledby="titulo-contato">
+      <div class="container">
+        <h2 id="titulo-contato">Entre em Contato</h2>
+        <div class="spacer-sm"></div>
+        <div class="form-box" role="form" aria-describedby="contato-ajuda">
+          <h3>Envie-nos uma mensagem</h3>
+          <p id="contato-ajuda" class="visually-hidden">Todos os campos são obrigatórios.</p>
+          <form id="form-contato" novalidate>
+            <div class="field">
+              <label class="visually-hidden" for="nome">Seu nome</label>
+              <input id="nome" name="nome" class="input" type="text" placeholder="Seu nome" required aria-required="true" />
+            </div>
+            <div class="field">
+              <label class="visually-hidden" for="email">Seu e-mail</label>
+              <input id="email" name="email" class="input" type="email" placeholder="Seu e-mail" required aria-required="true" />
+            </div>
+            <div class="field">
+              <label class="visually-hidden" for="mensagem">Sua mensagem</label>
+              <textarea id="mensagem" name="mensagem" class="textarea" rows="5" placeholder="Sua mensagem" required aria-required="true"></textarea>
+            </div>
+            <div class="form-actions">
+              <button id="btn-contato" type="submit" class="btn-submit">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section" aria-labelledby="titulo-news">
+      <div class="container">
+        <h2 id="titulo-news">Fique por dentro</h2>
+        <div class="spacer-sm"></div>
+        <div class="form-box">
+          <h3>Inscreva-se para receber novidades</h3>
+          <form id="form-news" novalidate>
+            <div class="field">
+              <label class="visually-hidden" for="newsletter-email">Digite seu e-mail</label>
+              <input id="newsletter-email" class="input" type="email" placeholder="Digite seu e-mail" required aria-required="true" />
+            </div>
+            <div class="form-actions">
+              <button id="btn-news" type="submit" class="btn btn-primary">Inscrever-se</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2025 USEL - Consultoria para Empreendedores Locais</p>
+      <p>Email: usel.ao@gmail.com | Telefone: +244 935 695 262</p>
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Logo lightbox -->
+  <div id="logoLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Logo ampliado">
+    <div class="lightbox-content" role="document">
+      <img id="lightboxLogo" class="lightbox-img" src="img/logo.png" alt="Logo USEL ampliado" />
+      <button class="lightbox-close" aria-label="Fechar">×</button>
+    </div>
+  </div>
+
+  <script>
+    // Header shadow on scroll + active nav link
+    (function(){
+      const header = document.querySelector('header');
+      const links = Array.from(document.querySelectorAll('nav a'));
+      const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+      const onScroll = () => {
+        if (window.scrollY > 6) header.classList.add('is-scrolled'); else header.classList.remove('is-scrolled');
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const id = '#' + entry.target.id;
+          const link = links.find(a => a.getAttribute('href') === id);
+          if (!link) return;
+          if (entry.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px', threshold: [0, 0.5, 1] });
+
+      sections.forEach(sec => sec && observer.observe(sec));
+    })();
+
+    // Animated background (canvas orbs) with reduced-motion support
+    (function(){
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const canvas = document.getElementById('bg-canvas');
+      if (!canvas || prefersReducedMotion) return;
+      const ctx = canvas.getContext('2d');
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let width, height, orbs, rafId;
+
+      const colors = [
+        [15, 76, 129],   // blue-700
+        [255, 122, 0],   // orange-500
+        [11, 60, 103]    // blue-800
+      ];
+
+      function resize(){
+        width = canvas.clientWidth = window.innerWidth;
+        height = canvas.clientHeight = window.innerHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function makeOrbs(){
+        const count = Math.max(10, Math.floor(width / 160));
+        orbs = new Array(count).fill(0).map(() => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: 40 + Math.random() * 120,
+          vx: (Math.random() - 0.5) * 0.2,
+          vy: (Math.random() - 0.5) * 0.2,
+          c: colors[Math.floor(Math.random() * colors.length)],
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.3 + Math.random() * 0.6
+        }));
+      }
+
+      function draw(){
+        ctx.clearRect(0, 0, width, height);
+        ctx.globalCompositeOperation = 'lighter';
+        const t = performance.now() / 1000;
+        for (const o of orbs){
+          const g = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+          const rgba = (a) => `rgba(${o.c[0]}, ${o.c[1]}, ${o.c[2]}, ${a})`;
+          const alpha = 0.04 + 0.10 * (0.5 + 0.5 * Math.sin(t * o.speed + o.phase));
+          g.addColorStop(0, rgba(alpha));
+          g.addColorStop(1, rgba(0));
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+          ctx.fill();
+
+          o.x += o.vx; o.y += o.vy;
+          if (o.x < -o.r) o.x = width + o.r;
+          if (o.x > width + o.r) o.x = -o.r;
+          if (o.y < -o.r) o.y = height + o.r;
+          if (o.y > height + o.r) o.y = -o.r;
+        }
+        rafId = requestAnimationFrame(draw);
+      }
+
+      function start(){ cancelAnimationFrame(rafId); resize(); makeOrbs(); draw(); }
+      start();
+      window.addEventListener('resize', start);
+    })();
+
+    // KPI counters animation when visible
+    (function(){
+      const els = document.querySelectorAll('.kpi-value[data-counter]');
+      if (!els.length) return;
+      const dur = 1200; // ms
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+      const countTo = (el) => {
+        const target = parseInt(el.getAttribute('data-counter'), 10) || 0;
+        const start = performance.now();
+        const step = (now) => {
+          const p = Math.min(1, (now - start) / dur);
+          const v = Math.round(target * easeOut(p));
+          el.textContent = v.toString();
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries){
+          if (e.isIntersecting){
+            countTo(e.target);
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.4 });
+
+      els.forEach(el => io.observe(el));
+    })();
+
+    // Simple form validation + toast feedback (demo)
+    (function(){
+      const toast = document.getElementById('toast');
+      const showToast = (msg, ms = 3000) => {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), ms);
+      };
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+      function enhanceForm(formId, buttonId, successMsg){
+        const form = document.getElementById(formId);
+        const btn = document.getElementById(buttonId);
+        if (!form || !btn) return;
+
+        form.addEventListener('submit', (ev) => {
+          ev.preventDefault();
+          const inputs = Array.from(form.querySelectorAll('.input, .textarea'));
+          let valid = true;
+
+          inputs.forEach(inp => inp.classList.remove('error'));
+
+          for (const inp of inputs){
+            if (!inp.value.trim()) { inp.classList.add('error'); valid = false; }
+            if (inp.type === 'email' && !emailRegex.test(inp.value.trim())) { inp.classList.add('error'); valid = false; }
+          }
+
+          if (!valid) { showToast('Verifique os campos destacados.'); return; }
+
+          const original = btn.innerHTML;
+          btn.disabled = true;
+          btn.innerHTML = '<span class="spinner" aria-hidden="true"></span>';
+
+          // Simulação de envio
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.innerHTML = original;
+            form.reset();
+            showToast(successMsg);
+          }, 900);
+        });
+      }
+
+      enhanceForm('form-contato', 'btn-contato', 'Mensagem enviada com sucesso. Retornaremos em breve.');
+      enhanceForm('form-news', 'btn-news', 'Inscrição realizada! Confira seu e-mail para confirmar.');
+    })();
+
+    // Back-to-top button
+    (function(){
+      const btn = document.getElementById('toTop');
+      if (!btn) return;
+      const toggle = () => {
+        if (window.scrollY > 320) btn.classList.add('is-visible'); else btn.classList.remove('is-visible');
+      };
+      window.addEventListener('scroll', toggle, { passive: true });
+      toggle();
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+
+    // Logo lightbox interactions
+    (function(){
+      const trigger = document.querySelector('.logo-badge img');
+      const lb = document.getElementById('logoLightbox');
+      if (!trigger || !lb) return;
+      const img = document.getElementById('lightboxLogo');
+      const btnClose = lb.querySelector('.lightbox-close');
+
+      const open = () => {
+        if (trigger.currentSrc || trigger.src) img.src = trigger.currentSrc || trigger.src;
+        document.body.style.overflow = 'hidden';
+        lb.classList.add('is-open');
+        btnClose && btnClose.focus();
+      };
+
+      const close = () => {
+        lb.classList.remove('is-open');
+        document.body.style.overflow = '';
+        trigger && trigger.focus();
+      };
+
+      trigger.style.cursor = 'zoom-in';
+      trigger.addEventListener('click', open);
+      btnClose && btnClose.addEventListener('click', close);
+      lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('is-open')) close(); });
+    })();
+
+    // Auto-scroll suave dos destaques (direita -> esquerda)
+    (function(){
+      const scroller = document.querySelector('.usel-scroller');
+      if (!scroller || scroller.dataset.marqueeApplied) return;
+      scroller.dataset.marqueeApplied = '1';
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Clonar itens para looping contínuo
+      const items = Array.from(scroller.children);
+      if (items.length) {
+        items.forEach(it => scroller.appendChild(it.cloneNode(true)));
+      }
+      scroller.classList.add('is-auto');
+      scroller.scrollLeft = 0; // iniciar encostado à esquerda, sem espaço
+
+      let rafId = null, lastTs = null;
+      const state = { paused: false };
+      const SPEED = 0.06; // px por ms (~60px/s)
+      const HALF = () => scroller.scrollWidth / 2; // porque duplicamos
+
+      const tick = (ts) => {
+        if (state.paused) { lastTs = ts; rafId = requestAnimationFrame(tick); return; }
+        if (lastTs == null) lastTs = ts;
+        const dt = Math.min(48, ts - lastTs);
+        lastTs = ts;
+        scroller.scrollLeft += SPEED * dt;
+        if (scroller.scrollLeft >= HALF()) {
+          scroller.scrollLeft -= HALF(); // reseta suavemente para início
+        }
+        rafId = requestAnimationFrame(tick);
+      };
+
+      const pauseTemporarily = () => {
+        state.paused = true;
+        scroller.classList.remove('is-auto');
+        clearTimeout(pauseTemporarily._t);
+        pauseTemporarily._t = setTimeout(() => { state.paused = false; scroller.classList.add('is-auto'); }, 1200);
+      };
+
+      scroller.addEventListener('mouseenter', () => { state.paused = true; scroller.classList.remove('is-auto'); });
+      scroller.addEventListener('mouseleave', () => { state.paused = false; scroller.classList.add('is-auto'); });
+      scroller.addEventListener('touchstart', pauseTemporarily, { passive: true });
+      scroller.addEventListener('touchend', pauseTemporarily, { passive: true });
+      scroller.addEventListener('wheel', pauseTemporarily, { passive: true });
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { cancelAnimationFrame(rafId); rafId = null; lastTs = null; }
+        else if (!rafId) { rafId = requestAnimationFrame(tick); }
+      });
+
+      rafId = requestAnimationFrame(tick);
+    })();
+  // BlurText: split text into spans and animate on view
+    (function(){
+      const els = document.querySelectorAll('.blur-text');
+      if (!els.length) return;
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      els.forEach(el => {
+        const text = el.textContent;
+        el.setAttribute('aria-label', text);
+        el.textContent = '';
+        const frag = document.createDocumentFragment();
+        const stagger = parseInt(el.dataset.stagger || '45', 10);
+        const blur = parseInt(el.dataset.fromBlur || '8', 10);
+        const duration = el.dataset.duration || '.75s';
+        el.style.setProperty('--blur-start', blur + 'px');
+        el.style.setProperty('--duration', duration);
+        [...text].forEach((ch, i) => {
+          const span = document.createElement('span');
+          span.className = 'char';
+          span.textContent = ch;
+          if (!prefersReduced) {
+            span.style.animationDelay = (i * stagger) + 'ms';
+          } else {
+            span.style.filter = 'none';
+            span.style.transform = 'none';
+            span.style.opacity = '1';
+          }
+          frag.appendChild(span);
+        });
+        el.appendChild(frag);
+        io.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
